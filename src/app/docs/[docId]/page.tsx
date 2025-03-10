@@ -1,6 +1,7 @@
 import { Editor } from "./editor";
+import ToolBox from "./toolbox";
 
-type DocumentIdProps = {
+export type DocumentIdProps = {
   params: Promise<{ docId: string }>;
 };
 
@@ -9,6 +10,7 @@ const DocumentId = async ({ params }: DocumentIdProps) => {
   return (
     <div className="min-h-screen bg-[#FAFBFD]">
       Document Id: {id}
+      <ToolBox />
       <Editor />
     </div>
   );
