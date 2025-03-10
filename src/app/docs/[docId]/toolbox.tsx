@@ -3,10 +3,12 @@
 import {
   BoldIcon,
   ItalicIcon,
+  ListTodoIcon,
   LucideIcon,
   MessageSquarePlusIcon,
   PrinterIcon,
   Redo2Icon,
+  RemoveFormattingIcon,
   SpellCheck2Icon,
   UnderlineIcon,
   Undo2Icon,
@@ -14,6 +16,8 @@ import {
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "../../../../store/use-editor-state";
 import { Separator } from "@/components/ui/separator";
+import FontFamilyButton from "@/components/ui/custom/FontFamilyButton";
+import Heading from "@/components/ui/custom/Heading";
 
 export type ToolBoxButtonProps = {
   onClick?: () => void;
@@ -97,6 +101,18 @@ export default function ToolBox() {
         label: "Comments",
         icon: MessageSquarePlusIcon,
         onClick: () => console.log("to be added"),
+        isActive: false,
+      },
+      {
+        label: "List Todo",
+        icon: ListTodoIcon,
+        isActive: editor?.isActive("taskList"),
+        onClick: () => editor?.chain().focus().toggleTaskList().run(),
+      },
+      {
+        label: "Remove Formatting",
+        icon: RemoveFormattingIcon,
+        onClick: () => editor?.chain().focus().unsetAllMarks().run(),
       },
     ],
   ];
@@ -106,7 +122,9 @@ export default function ToolBox() {
         <ToolBoxButtonController key={item.label} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      <Heading />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[1].map((item) => (
