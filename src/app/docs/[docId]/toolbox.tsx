@@ -22,6 +22,7 @@ import TextColorButton from "@/components/ui/custom/TextColorButton";
 import HightlightButton from "@/components/ui/custom/HighlightButton";
 import LinkButton from "@/components/ui/custom/LinkButton";
 import ImageButton from "@/components/ui/custom/ImageButton";
+import AlignmentButton from "@/components/ui/custom/Alignment";
 
 export type ToolBoxButtonProps = {
   onClick?: () => void;
@@ -142,6 +143,7 @@ export default function ToolBox() {
       ))}
       <LinkButton />
       <ImageButton />
+      <AlignmentButton />
     </div>
   );
 }

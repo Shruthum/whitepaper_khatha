@@ -9,6 +9,7 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableRow from "@tiptap/extension-table-row";
 import TableHeader from "@tiptap/extension-table-header";
 import TextStyle from "@tiptap/extension-text-style";
+import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import { Color } from "@tiptap/extension-color";
@@ -64,6 +65,9 @@ export const Editor = () => {
         defaultProtocol: "https",
         autolink: true,
         openOnClick: true,
+      }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
       }),
       Table,
       TableHeader,
