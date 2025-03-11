@@ -18,6 +18,8 @@ import { useEditorStore } from "../../../../store/use-editor-state";
 import { Separator } from "@/components/ui/separator";
 import FontFamilyButton from "@/components/ui/custom/FontFamilyButton";
 import Heading from "@/components/ui/custom/Heading";
+import TextColorButton from "@/components/ui/custom/TextColorButton";
+import HightlightButton from "@/components/ui/custom/HighlightButton";
 
 export type ToolBoxButtonProps = {
   onClick?: () => void;
@@ -130,6 +132,8 @@ export default function ToolBox() {
       {sections[1].map((item) => (
         <ToolBoxButtonController key={item.label} {...item} />
       ))}
+      <TextColorButton />
+      <HightlightButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[2].map((item) => (
         <ToolBoxButtonController key={item.label} {...item} />

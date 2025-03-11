@@ -1,8 +1,7 @@
-"use client";
-
 import { ChevronDownIcon } from "lucide-react";
 import { useEditorStore } from "../../../../store/use-editor-state";
 import { Button } from "../button";
+import type { Level } from "@tiptap/extension-heading";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,6 +19,17 @@ const Heading = () => {
     }
     return "Normal text";
   }
+  function handleClick(value: number) {
+    if (value === 0) {
+      editor?.chain().focus().setParagraph().run();
+    } else {
+      editor
+        ?.chain()
+        .focus()
+        .toggleHeading({ level: value as Level })
+        .run();
+    }
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -36,6 +46,7 @@ const Heading = () => {
           <button
             style={{ fontSize: item.fontSize }}
             key={item.value}
+            onClick={() => handleClick(item.value)}
             className={cn(
               "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/50",
               item.value === 0 ||

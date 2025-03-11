@@ -11,6 +11,8 @@ import TableHeader from "@tiptap/extension-table-header";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
 import { useEditorStore } from "../../../../store/use-editor-state";
@@ -54,6 +56,9 @@ export const Editor = () => {
       TaskItem.configure({
         nested: true,
       }),
+      Highlight.configure({
+        multicolor: true,
+      }),
       Table,
       TableHeader,
       TableCell,
@@ -64,6 +69,7 @@ export const Editor = () => {
       FontFamily,
       TextStyle,
       Underline,
+      Color,
     ],
     content: "<p>Hello World</p>",
   });
