@@ -9,7 +9,7 @@ import { HighlighterIcon } from "lucide-react";
 
 export default function HightlightButton() {
   const { editor } = useEditorStore();
-  const current_value = editor?.getAttributes("hightlight").color || "#FFF";
+  const current_value = editor?.getAttributes("hightlight").color || "#FFFFFF";
   const handleClick = (color: ColorResult) => {
     editor?.chain().focus().setHighlight({ color: color.hex }).run();
   };

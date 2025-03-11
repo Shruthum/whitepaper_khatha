@@ -13,6 +13,7 @@ import Underline from "@tiptap/extension-underline";
 import FontFamily from "@tiptap/extension-font-family";
 import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
+import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
 import { useEditorStore } from "../../../../store/use-editor-state";
@@ -58,6 +59,11 @@ export const Editor = () => {
       }),
       Highlight.configure({
         multicolor: true,
+      }),
+      Link.configure({
+        defaultProtocol: "https",
+        autolink: true,
+        openOnClick: true,
       }),
       Table,
       TableHeader,

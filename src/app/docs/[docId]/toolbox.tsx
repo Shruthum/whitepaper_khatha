@@ -20,6 +20,8 @@ import FontFamilyButton from "@/components/ui/custom/FontFamilyButton";
 import Heading from "@/components/ui/custom/Heading";
 import TextColorButton from "@/components/ui/custom/TextColorButton";
 import HightlightButton from "@/components/ui/custom/HighlightButton";
+import LinkButton from "@/components/ui/custom/LinkButton";
+import ImageButton from "@/components/ui/custom/ImageButton";
 
 export type ToolBoxButtonProps = {
   onClick?: () => void;
@@ -138,6 +140,8 @@ export default function ToolBox() {
       {sections[2].map((item) => (
         <ToolBoxButtonController key={item.label} {...item} />
       ))}
+      <LinkButton />
+      <ImageButton />
     </div>
   );
 }
